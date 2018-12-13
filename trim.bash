@@ -2,7 +2,7 @@
 
 WIDTH=505
 PWD_BASE=$(pwd)
-cd SVG
+cd svg
 for name in *.svg; do
 	name_png=$(echo $name | sed 's/svg/png/ig')
 	inkscape $name -w $WIDTH --export-background="#000000"  --export-png=$PWD_BASE/png/black-background/$name_png
