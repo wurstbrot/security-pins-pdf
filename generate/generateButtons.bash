@@ -9,8 +9,13 @@ TARGET_MACHINE_SIZE_WIDTH=620 # 620
 SCHNITTMARKE=schnittmarke-$TARGET_MACHINE_SIZE_LENGTH"x"$TARGET_MACHINE_SIZE_WIDTH".png"
 convert "schnittmarke-250x250.png" -resize "$TARGET_MACHINE_SIZE_LENGTH"x"$TARGET_MACHINE_SIZE_WIDTH!" $SCHNITTMARKE
 #SCHNITTMARKE="schnittmarke.png"
-
-rm buttons/*
+if [ -d buttons ] && [ -d print/buttons ]; then
+	rm buttons/*
+	rm print/buttons/*
+else
+	mkdir buttons
+	mkdir -p print/buttons
+fi
 cp ../png/black-background/* buttons
 for i in $(find buttons -type f);do
 	if [ -e print/$i.pdf ]; then
