@@ -23,3 +23,7 @@ for i in $(find buttons -type f);do
 		mv picture.pdf print/$i.pdf
 	fi
 done
+
+echo "###########################"
+echo "The PDFs are not to be commited, print it now"
+echo "###########################"
